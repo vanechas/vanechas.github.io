@@ -330,13 +330,13 @@
     </footer>
 
     <!-- Notification Toast for CV Download / Feedback -->
-    <div id="toast" class="fixed bottom-6 right-6 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 bg-white border border-blush-200 shadow-lg rounded-2xl px-4 py-3 flex items-center gap-3 text-xs text-espresso-700 z-50">
-      <span class="text-lg">✨</span>
-      <div>
-        <p class="font-medium" id="toast-title">Resume Link</p>
-        <p class="text-espresso-400 text-[11px]" id="toast-desc">Place your resume.pdf into the repository to download.</p>
-      </div>
+  <div id="toast" class="fixed bottom-6 right-6 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 bg-white border border-blush-200 shadow-lg rounded-2xl px-4 py-3 flex items-center gap-3 text-xs text-espresso-700 z-50">
+    <span class="text-lg">✨</span>
+    <div>
+      <p class="font-medium" id="toast-title">Resume Downloaded</p>
+      <p class="text-espresso-400 text-[11px]" id="toast-desc">Thanks for checking out my profile!</p>
     </div>
+  </div>
 
   </main>
 
@@ -436,10 +436,6 @@
 
         const repos = await reposRes.json();
         loader.classList.add('hidden');
-
-        // Filter out forks if there are enough original projects
-        let filtered = repos.filter(r => !r.fork);
-        if (filtered.length === 0) filtered = repos; // fallback to any if all are forks
         
         renderProjects(filtered.slice(0, 5));
       } catch (err) {
