@@ -135,7 +135,7 @@
           <span class="hidden sm:inline">LinkedIn</span>
         </a>
         <a href="#projects" class="px-3 py-1.5 rounded-xl hover:bg-blush-100/70 hover:text-blush-500 transition-colors">Work</a>
-        <a href="mailto:hello@example.com" class="px-3 py-1.5 rounded-xl bg-white border border-blush-200 text-blush-500 hover:bg-blush-100/60 shadow-sm transition-all duration-200">
+        <a href="mailto:vanessasantoso833@gmail.com" class="px-3 py-1.5 rounded-xl bg-white border border-blush-200 text-blush-500 hover:bg-blush-100/60 shadow-sm transition-all duration-200">
           Contact ✉️
         </a>
       </nav>
@@ -158,10 +158,15 @@
           <span class="text-blush-400">📖</span>
           <span>Currently learning: <span class="text-espresso-700 font-medium">Bayesian Hidden Markov Model</span></span>
         </div>
-        <a href="#resume" onclick="alertResumeMessage(event)" class="inline-flex items-center gap-1.5 text-espresso-600 hover:text-blush-500 font-sans font-medium transition-colors group">
-          <span>Download CV</span>
-          <svg class="w-3.5 h-3.5 transform group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-        </a>
+          <a 
+            href="resume.pdf" 
+            download="Vanessa_Resume.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="inline-flex items-center gap-1.5 text-espresso-600 hover:text-blush-500 font-sans font-medium transition-colors group">
+            <span>Download CV</span>
+            <svg class="w-3.5 h-3.5 transform group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+          </a>
       </div>
     </section>
 
@@ -419,7 +424,7 @@
       navGithubLink.href = `https://github.com/${username}`;
 
       try {
-        // Fetch User Info to update avatar and bio if desired
+        // 1. Fetch user profile data for avatar & name
         const userRes = await fetch(`https://api.github.com/users/${username}`);
         if (userRes.ok) {
           const userData = await userRes.json();
@@ -427,17 +432,43 @@
           if (userData.name) userDisplayName.textContent = userData.name;
         }
 
-        // Fetch user repos (sorted by most recently updated/pushed)
-        const reposRes = await fetch(`https://api.github.com/users/${username}/repos?sort=pushed&per_page=6`);
-        
-        if (!reposRes.ok) {
-          throw new Error(`GitHub API returned status ${reposRes.status}`);
+        // 2. Fetch Pinned Repositories (supports forked repos)
+        let pinnedProjects = [];
+        try {
+          const pinnedRes = await fetch(`https://gh-pinned-repos.egoist.dev/?username=${username}`);
+          if (pinnedRes.ok) {
+            const rawPinned = await pinnedRes.json();
+            pinnedProjects = rawPinned.map(p => ({
+              name: p.repo,
+              html_url: `https://github.com/${p.owner}/${p.repo}`,
+              homepage: p.website || null,
+              description: p.description || "Pinned project repository.",
+              language: p.language || 'Code',
+              stargazers_count: parseInt(p.stars) || 0,
+              updated_at: null // Pinned API doesn't return dates
+            }));
+          }
+        } catch (pinnedErr) {
+          console.warn('Could not fetch pinned repos, falling back to all repos:', pinnedErr);
         }
 
-        const repos = await reposRes.json();
+        // 3. Fallback: If no pinned repos exist or API fails, fetch all repos (including forks)
+        if (!pinnedProjects || pinnedProjects.length === 0) {
+          const reposRes = await fetch(`https://api.github.com/users/${username}/repos?sort=pushed&per_page=6`);
+          if (!reposRes.ok) {
+            throw new Error(`GitHub API returned status ${reposRes.status}`);
+          }
+          // Included both regular and forked repositories
+          pinnedProjects = await reposRes.json();
+        }
+
         loader.classList.add('hidden');
-        
-        renderProjects(filtered.slice(0, 5));
+
+        if (pinnedProjects.length === 0) {
+          container.innerHTML = '<p class="text-xs font-mono text-espresso-400 py-4 text-center">No repositories found for this user.</p>';
+        } else {
+          renderProjects(pinnedProjects.slice(0, 6));
+        }
       } catch (err) {
         console.warn('GitHub API rate limit or network error; loading fallback projects:', err);
         loader.classList.add('hidden');
