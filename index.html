@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vanessa - Aspiring Data Engineer</title>
-  <!-- Google Fonts: Inter & Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
@@ -55,43 +55,30 @@
     }
   </script>
   <style>
-    /* Smooth dotted divider inspired by the provided screenshot */
     .dotted-divider {
       background-image: linear-gradient(to right, #e2d7d2 33%, rgba(255,255,255,0) 0%);
       background-position: bottom;
       background-size: 6px 1.5px;
       background-repeat: repeat-x;
     }
-    
-    /* Subtle pastel scrollbar */
-    ::-webkit-scrollbar {
-      width: 7px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #fdf7f4;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #fbd0dc;
-      border-radius: 9999px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #f8a5bc;
-    }
+    ::-webkit-scrollbar { width: 7px; }
+    ::-webkit-scrollbar-track { background: #fdf7f4; }
+    ::-webkit-scrollbar-thumb { background: #fbd0dc; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #f8a5bc; }
 
-    /* Soft pulse for online badge */
     @keyframes softPulse {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.6; transform: scale(1.15); }
     }
-    .pulse-dot {
-      animation: softPulse 2.4s ease-in-out infinite;
-    }
-
-    /* Highlight pen marker effect */
+    .pulse-dot { animation: softPulse 2.4s ease-in-out infinite; }
     .pen-highlight {
       background: linear-gradient(120deg, rgba(251, 208, 220, 0.4) 0%, rgba(248, 165, 188, 0.55) 100%);
       border-radius: 4px;
       padding: 0 4px;
+    }
+    /* Filter to pastelize the GitHub activity SVG cleanly */
+    .pastel-chart {
+      filter: hue-rotate(300deg) saturate(0.85) contrast(0.95);
     }
   </style>
 </head>
@@ -99,13 +86,11 @@
 
   <main class="max-w-2xl mx-auto px-5 sm:px-6 py-12 sm:py-16 md:py-20 transition-all duration-300">
     
-    <!-- Top Navigation / Social Badges -->
+    <!-- Top Navigation -->
     <header class="flex items-center justify-between pb-8">
       <div class="relative group">
-        <!-- Avatar with soft blush glow -->
         <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blush-200 to-lavender-200 p-0.5 shadow-sm transition-transform duration-300 group-hover:scale-105">
           <div class="w-full h-full rounded-[14px] bg-white overflow-hidden flex items-center justify-center">
-            <!-- Cute avatar placeholder with image fallback -->
             <img 
               id="user-avatar"
               src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=256&q=80" 
@@ -115,32 +100,28 @@
             />
           </div>
         </div>
-        <!-- Status indicator -->
         <span class="absolute -bottom-1 -right-1 flex h-4 w-4">
           <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-blush-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-4 w-4 bg-blush-300 border-2 border-cream-100 items-center justify-center text-[8px] text-white">🌸</span>
         </span>
       </div>
 
-      <!-- Quick Social & Contact Links -->
+      <!-- Quick Social Links -->
       <nav class="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm font-medium text-espresso-600">
-        <a id="nav-github-link" href="https://github.com" target="_blank" rel="noopener noreferrer" 
+        <a id="nav-github-link" href="https://github.com/vanechas" target="_blank" rel="noopener noreferrer" 
            class="p-2 sm:px-3 sm:py-1.5 rounded-xl hover:bg-blush-100/70 hover:text-blush-500 transition-colors flex items-center gap-1.5" title="GitHub Profile">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           <span class="hidden sm:inline">GitHub</span>
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" 
-           class="p-2 sm:px-3 sm:py-1.5 rounded-xl hover:bg-lavender-100/80 hover:text-indigo-500 transition-colors flex items-center gap-1.5" title="LinkedIn Profile">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-          <span class="hidden sm:inline">LinkedIn</span>
-        </a>
         <a href="#projects" class="px-3 py-1.5 rounded-xl hover:bg-blush-100/70 hover:text-blush-500 transition-colors">Work</a>
-        <a href="mailto:vanessasantoso833@gmail.com" class="px-3 py-1.5 rounded-xl bg-white border border-blush-200 text-blush-500 hover:bg-blush-100/60 shadow-sm transition-all duration-200">
+        <!-- FIX 1: UPDATE THIS EMAIL ADDRESS -->
+        <a id="nav-email-link" href="mailto:vanessasantoso833@gmail.com" class="px-3 py-1.5 rounded-xl bg-white border border-blush-200 text-blush-500 hover:bg-blush-100/60 shadow-sm transition-all duration-200">
           Contact ✉️
         </a>
       </nav>
     </header>
 
+    <!-- Hero / Bio -->
     <section class="mb-10">
       <h1 class="text-2xl sm:text-3xl font-heading font-bold text-espresso-900 tracking-tight flex items-center gap-2">
         <span>Hi, I'm</span>
@@ -152,25 +133,20 @@
         CS & Statistics student aspiring to build robust, scalable data pipelines. Writing code and shaping data during the week; exploring mountain trails and backcountry peaks on weekends.
       </p>
 
-      <!-- Mini status bar & Resume action -->
       <div class="mt-5 flex flex-wrap items-center gap-4 text-xs font-mono text-espresso-400">
         <div class="flex items-center gap-2 bg-white/70 px-3 py-1.5 rounded-full border border-cream-300">
           <span class="text-blush-400">📖</span>
-          <span>Currently learning: <span class="text-espresso-700 font-medium">Bayesian Hidden Markov Model</span></span>
+          <span>Currently learning: <span class="text-espresso-700 font-medium">Data Pipelines & Cloud Architecture</span></span>
         </div>
-          <a 
-            href="resume.pdf" 
-            download="Vanessa_Resume.pdf" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="inline-flex items-center gap-1.5 text-espresso-600 hover:text-blush-500 font-sans font-medium transition-colors group">
-            <span>Download CV</span>
-            <svg class="w-3.5 h-3.5 transform group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-          </a>
+        <!-- FIX 2: REAL DOWNLOAD LINK -->
+        <a href="resume.pdf" download="Vanessa_Resume.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-espresso-600 hover:text-blush-500 font-sans font-medium transition-colors group">
+          <span>Download CV</span>
+          <svg class="w-3.5 h-3.5 transform group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </a>
       </div>
     </section>
 
-    <!-- GitHub Contribution Visualizer (Pastel theme inspired by image) -->
+    <!-- FIX 3: REAL GITHUB CONTRIBUTIONS HEATMAP (LIVE SYNC) -->
     <section class="mb-12 bg-white/60 p-4 rounded-2xl border border-cream-200 shadow-sm backdrop-blur-sm">
       <div class="flex items-center justify-between text-[11px] font-mono tracking-wider text-espresso-400 uppercase mb-3">
         <span class="flex items-center gap-1.5">
@@ -179,18 +155,22 @@
         <span class="text-[10px] text-blush-400 font-medium lowercase">live github sync</span>
       </div>
       
-      <!-- Generated Cute Pastel Heatmap Grid -->
       <div class="overflow-x-auto pb-1">
-        <div id="heatmap-grid" class="flex gap-1.5 min-w-[500px]">
-          <!-- Heatmap columns populated by JS -->
+        <div class="min-w-[600px] flex justify-center py-1">
+          <img 
+            id="github-chart-img"
+            src="https://ghchart.rshah.org/f8a5bc/vanechas" 
+            alt="Vanessa's GitHub Contributions Chart"
+            class="w-full h-auto pastel-chart"
+            loading="lazy"
+          />
         </div>
       </div>
       <div class="flex items-center justify-between mt-3 text-[10px] font-mono text-espresso-400">
-        <span>* Synced from GitHub repository events</span>
+        <span>* Synced directly from real GitHub commits</span>
         <div class="flex items-center gap-1">
           <span>Less</span>
           <span class="w-2.5 h-2.5 rounded-[3px] bg-cream-200"></span>
-          <span class="w-2.5 h-2.5 rounded-[3px] bg-blush-100"></span>
           <span class="w-2.5 h-2.5 rounded-[3px] bg-blush-200"></span>
           <span class="w-2.5 h-2.5 rounded-[3px] bg-blush-300"></span>
           <span class="w-2.5 h-2.5 rounded-[3px] bg-blush-400"></span>
@@ -201,6 +181,7 @@
 
     <div class="w-full h-px dotted-divider mb-12"></div>
 
+    <!-- Skills Section -->
     <section class="mb-14">
       <div class="flex items-center justify-between mb-5">
         <h2 class="text-sm font-mono uppercase tracking-wider text-espresso-400 font-medium">
@@ -210,7 +191,7 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <!-- Frontend Block -->
+        <!-- Frontend -->
         <div class="p-4 rounded-2xl bg-white/70 border border-blush-100 shadow-sm hover:border-blush-200 transition-all">
           <div class="flex items-center gap-2 mb-3">
             <span class="text-base">🎀</span>
@@ -221,11 +202,10 @@
             <span class="px-2.5 py-1 text-xs rounded-lg bg-blush-100/80 text-espresso-700 font-sans border border-blush-200/50">JavaScript</span>
             <span class="px-2.5 py-1 text-xs rounded-lg bg-blush-100/80 text-espresso-700 font-sans border border-blush-200/50">Tailwind CSS</span>
             <span class="px-2.5 py-1 text-xs rounded-lg bg-blush-100/80 text-espresso-700 font-sans border border-blush-200/50">HTML5/CSS3</span>
-            <span class="px-2.5 py-1 text-xs rounded-lg bg-blush-100/80 text-espresso-700 font-sans border border-blush-200/50">Figma</span>
           </div>
         </div>
 
-        <!-- Backend & Cloud Block -->
+        <!-- Backend -->
         <div class="p-4 rounded-2xl bg-white/70 border border-lavender-100 shadow-sm hover:border-lavender-200 transition-all">
           <div class="flex items-center gap-2 mb-3">
             <span class="text-base">☁️</span>
@@ -235,11 +215,11 @@
             <span class="px-2.5 py-1 text-xs rounded-lg bg-lavender-100/80 text-espresso-700 font-sans border border-lavender-200/60">PHP & Laravel</span>
             <span class="px-2.5 py-1 text-xs rounded-lg bg-lavender-100/80 text-espresso-700 font-sans border border-lavender-200/60">MySQL</span>
             <span class="px-2.5 py-1 text-xs rounded-lg bg-lavender-100/80 text-espresso-700 font-sans border border-lavender-200/60">Docker</span>
-            <span class="px-2.5 py-1 text-xs rounded-lg bg-lavender-100/80 text-espresso-700 font-sans border border-lavender-200/60">AWS (S3, Lambda)</span>
+            <span class="px-2.5 py-1 text-xs rounded-lg bg-lavender-100/80 text-espresso-700 font-sans border border-lavender-200/60">Linux / Bash</span>
           </div>
         </div>
 
-        <!-- Data & Systems Block -->
+        <!-- Data -->
         <div class="p-4 rounded-2xl bg-white/70 border border-mint-100 shadow-sm hover:border-mint-200 transition-all">
           <div class="flex items-center gap-2 mb-3">
             <span class="text-base">🌱</span>
@@ -248,12 +228,12 @@
           <div class="flex flex-wrap gap-1.5">
             <span class="px-2.5 py-1 text-xs rounded-lg bg-mint-100/90 text-espresso-700 font-sans border border-mint-200">Python (Pandas, Numpy)</span>
             <span class="px-2.5 py-1 text-xs rounded-lg bg-mint-100/90 text-espresso-700 font-sans border border-mint-200">R / RStudio</span>
-            <span class="px-2.5 py-1 text-xs rounded-lg bg-mint-100/90 text-espresso-700 font-sans border border-mint-200">SQL Modelling</span>
-            <span class="px-2.5 py-1 text-xs rounded-lg bg-mint-100/90 text-espresso-700 font-sans border border-mint-200">Data Visualization</span>
+            <span class="px-2.5 py-1 text-xs rounded-lg bg-mint-100/90 text-espresso-700 font-sans border border-mint-200">SQL Modeling</span>
+            <span class="px-2.5 py-1 text-xs rounded-lg bg-mint-100/90 text-espresso-700 font-sans border border-mint-200">ETL Pipelines</span>
           </div>
         </div>
 
-        <!-- Workflow & Tools Block -->
+        <!-- Stats -->
         <div class="p-4 rounded-2xl bg-white/70 border border-cream-200 shadow-sm hover:border-blush-200 transition-all">
           <div class="flex items-center gap-2 mb-3">
             <span class="text-base">✨</span>
@@ -263,7 +243,7 @@
             <span class="px-2.5 py-1 text-xs rounded-lg bg-cream-200/70 text-espresso-700 font-sans border border-cream-300">Regression Analysis</span>
             <span class="px-2.5 py-1 text-xs rounded-lg bg-cream-200/70 text-espresso-700 font-sans border border-cream-300">Multivariate Analysis</span>
             <span class="px-2.5 py-1 text-xs rounded-lg bg-cream-200/70 text-espresso-700 font-sans border border-cream-300">Time Series</span>
-            <span class="px-2.5 py-1 text-xs rounded-lg bg-cream-200/70 text-espresso-700 font-sans border border-cream-300">Git / Github</span>
+            <span class="px-2.5 py-1 text-xs rounded-lg bg-cream-200/70 text-espresso-700 font-sans border border-cream-300">Git / GitHub</span>
           </div>
         </div>
       </div>
@@ -271,16 +251,16 @@
 
     <div class="w-full h-px dotted-divider mb-12"></div>
 
+    <!-- Projects Section -->
     <section id="projects" class="mb-14">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
         <div>
           <h2 class="text-sm font-mono uppercase tracking-wider text-espresso-400 font-medium">
             Selected Works & Repositories
           </h2>
-          <p class="text-xs text-espresso-400 mt-0.5">Live fetched repositories from GitHub API</p>
+          <p class="text-xs text-espresso-400 mt-0.5">Live fetched repositories (including forks) from GitHub</p>
         </div>
 
-        <!-- Dynamic GitHub Username Switcher -->
         <div class="flex items-center gap-2 bg-white px-2.5 py-1.5 rounded-xl border border-blush-200 shadow-sm text-xs">
           <span class="text-blush-400">@</span>
           <input 
@@ -289,7 +269,6 @@
             value="vanechas" 
             class="w-24 bg-transparent outline-none font-mono text-espresso-700 text-xs placeholder-espresso-400"
             placeholder="username"
-            title="Type any GitHub handle to test live loading"
           />
           <button 
             id="fetch-user-btn" 
@@ -300,20 +279,17 @@
         </div>
       </div>
 
-      <!-- Live Loading State -->
+      <!-- Loading Indicator -->
       <div id="projects-loading" class="hidden py-12 text-center">
         <div class="inline-block w-6 h-6 border-2 border-blush-300 border-t-blush-500 rounded-full animate-spin"></div>
-        <p class="text-xs font-mono text-espresso-400 mt-2">Fetching repos from GitHub...</p>
+        <p class="text-xs font-mono text-espresso-400 mt-2">Connecting to GitHub...</p>
       </div>
 
-      <!-- Project List Container -->
-      <div id="projects-container" class="space-y-4">
-        <!-- Rendered dynamically by JavaScript -->
-      </div>
+      <!-- Projects Container -->
+      <div id="projects-container" class="space-y-4"></div>
 
-      <!-- View all GitHub Link -->
       <div class="mt-8 text-center sm:text-left">
-        <a id="all-repos-link" href="https://github.com" target="_blank" rel="noopener noreferrer" 
+        <a id="all-repos-link" href="https://github.com/vanechas" target="_blank" rel="noopener noreferrer" 
            class="inline-flex items-center gap-2 text-xs font-mono text-espresso-600 hover:text-blush-500 transition-colors group">
           <span>see all repositories on github</span>
           <span class="transform group-hover:translate-x-1 transition-transform">→</span>
@@ -334,81 +310,26 @@
       </div>
     </footer>
 
-    <!-- Notification Toast for CV Download / Feedback -->
-  <div id="toast" class="fixed bottom-6 right-6 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 bg-white border border-blush-200 shadow-lg rounded-2xl px-4 py-3 flex items-center gap-3 text-xs text-espresso-700 z-50">
-    <span class="text-lg">✨</span>
-    <div>
-      <p class="font-medium" id="toast-title">Resume Downloaded</p>
-      <p class="text-espresso-400 text-[11px]" id="toast-desc">Thanks for checking out my profile!</p>
-    </div>
-  </div>
-
   </main>
 
   <script>
-    // Configurable default GitHub handle
     const DEFAULT_GITHUB_USERNAME = "vanechas";
 
-    // Set dynamic copyright year
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
-    // Pastel Language Color Mapping
     const LANGUAGE_COLORS = {
       JavaScript: '#f8d288',
       TypeScript: '#9ec5fe',
       Python: '#a7d5ea',
       HTML: '#f8b4a2',
       CSS: '#d3c5f5',
-      Rust: '#f2a68d',
-      Go: '#98e3d6',
-      Java: '#f3b4c1',
-      C: '#d6c8be',
-      "C++": '#f5a3c7',
-      Ruby: '#f9a8b8',
+      PHP: '#b0b3d6',
+      R: '#8cb1de',
       Shell: '#b8e2cd',
       Default: '#fbd0dc'
     };
 
-    // Curated Fallback Projects in case of GitHub API rate-limit (60 req/hr on unauthenticated IP)
-    const FALLBACK_PROJECTS = [
-      {
-        name: "bloom-notes",
-        html_url: "https://github.com",
-        homepage: "https://example.com",
-        description: "A serene, offline-first markdown journal designed with end-to-end local encryption and pastel aesthetics.",
-        language: "TypeScript",
-        stargazers_count: 142,
-        updated_at: "2026-03-15"
-      },
-      {
-        name: "cloud-pipeline-sentinel",
-        html_url: "https://github.com",
-        homepage: null,
-        description: "Automated AWS Lambda & Terraform pipeline that audits infrastructure metrics and reports health to Discord.",
-        language: "Python",
-        stargazers_count: 89,
-        updated_at: "2026-02-28"
-      },
-      {
-        name: "pastel-terminal-prompt",
-        html_url: "https://github.com",
-        homepage: null,
-        description: "A fast, minimalist Zsh & Starship shell prompt themed with soft sakura gradients and Git status glyphs.",
-        language: "Rust",
-        stargazers_count: 215,
-        updated_at: "2026-01-20"
-      },
-      {
-        name: "minimal-portfolio-engine",
-        html_url: "https://github.com",
-        homepage: "https://github.com",
-        description: "Single-file accessible developer portfolio automatically syncing with the GitHub REST API.",
-        language: "HTML",
-        stargazers_count: 67,
-        updated_at: "2025-11-12"
-      }
-    ];
-
+    // FIX 4: RELIABLE REPO FETCHER (INCLUDES FORKS & HANDLES EMPTY/RATE-LIMITED GRACEFULLY)
     async function fetchGitHubPortfolio(username) {
       const container = document.getElementById('projects-container');
       const loader = document.getElementById('projects-loading');
@@ -416,15 +337,17 @@
       const navGithubLink = document.getElementById('nav-github-link');
       const userAvatar = document.getElementById('user-avatar');
       const userDisplayName = document.getElementById('user-display-name');
+      const chartImg = document.getElementById('github-chart-img');
 
       loader.classList.remove('hidden');
       container.innerHTML = '';
 
       allReposLink.href = `https://github.com/${username}?tab=repositories`;
       navGithubLink.href = `https://github.com/${username}`;
+      if (chartImg) chartImg.src = `https://ghchart.rshah.org/f8a5bc/${username}`;
 
       try {
-        // 1. Fetch user profile data for avatar & name
+        // 1. Fetch user data (avatar & real name)
         const userRes = await fetch(`https://api.github.com/users/${username}`);
         if (userRes.ok) {
           const userData = await userRes.json();
@@ -432,65 +355,50 @@
           if (userData.name) userDisplayName.textContent = userData.name;
         }
 
-        // 2. Fetch Pinned Repositories (supports forked repos)
-        let pinnedProjects = [];
-        try {
-          const pinnedRes = await fetch(`https://gh-pinned-repos.egoist.dev/?username=${username}`);
-          if (pinnedRes.ok) {
-            const rawPinned = await pinnedRes.json();
-            pinnedProjects = rawPinned.map(p => ({
-              name: p.repo,
-              html_url: `https://github.com/${p.owner}/${p.repo}`,
-              homepage: p.website || null,
-              description: p.description || "Pinned project repository.",
-              language: p.language || 'Code',
-              stargazers_count: parseInt(p.stars) || 0,
-              updated_at: null // Pinned API doesn't return dates
-            }));
-          }
-        } catch (pinnedErr) {
-          console.warn('Could not fetch pinned repos, falling back to all repos:', pinnedErr);
+        // 2. Fetch all public repositories (includes forked repos, sorted by latest activity)
+        const reposRes = await fetch(`https://api.github.com/users/${username}/repos?sort=pushed&per_page=12&type=all`);
+        
+        if (!reposRes.ok) {
+          throw new Error(`GitHub API HTTP ${reposRes.status}`);
         }
 
-        // 3. Fallback: If no pinned repos exist or API fails, fetch all repos (including forks)
-        if (!pinnedProjects || pinnedProjects.length === 0) {
-          const reposRes = await fetch(`https://api.github.com/users/${username}/repos?sort=pushed&per_page=6`);
-          if (!reposRes.ok) {
-            throw new Error(`GitHub API returned status ${reposRes.status}`);
-          }
-          // Included both regular and forked repositories
-          pinnedProjects = await reposRes.json();
-        }
-
+        const repos = await reposRes.json();
         loader.classList.add('hidden');
 
-        if (pinnedProjects.length === 0) {
-          container.innerHTML = '<p class="text-xs font-mono text-espresso-400 py-4 text-center">No repositories found for this user.</p>';
-        } else {
-          renderProjects(pinnedProjects.slice(0, 6));
+        if (!repos || repos.length === 0) {
+          container.innerHTML = `
+            <div class="p-6 text-center bg-white/50 border border-cream-200 rounded-2xl">
+              <p class="text-xs font-mono text-espresso-400">No public repositories found for @${escapeHtml(username)}.</p>
+              <p class="text-[11px] text-espresso-400 mt-1">Make sure you have at least one public repo on your GitHub account!</p>
+            </div>`;
+          return;
         }
+
+        renderProjects(repos.slice(0, 6));
+
       } catch (err) {
-        console.warn('GitHub API rate limit or network error; loading fallback projects:', err);
+        console.warn('Direct GitHub API error:', err);
         loader.classList.add('hidden');
-        renderProjects(FALLBACK_PROJECTS, true);
+        container.innerHTML = `
+          <div class="p-4 rounded-2xl bg-blush-100/60 border border-blush-200 text-xs font-mono text-espresso-600">
+            ✦ Could not reach the GitHub API (you might be rate-limited by visiting too quickly). Refresh in a few minutes or click below to check your profile directly:
+            <div class="mt-2">
+              <a href="https://github.com/${escapeHtml(username)}" target="_blank" class="text-blush-500 underline font-semibold">Visit GitHub Profile ↗</a>
+            </div>
+          </div>
+        `;
       }
     }
 
-    function renderProjects(projects, isFallback = false) {
+    function renderProjects(projects) {
       const container = document.getElementById('projects-container');
       container.innerHTML = '';
 
-      if (isFallback) {
-        const notice = document.createElement('div');
-        notice.className = 'text-[11px] font-mono text-espresso-400 bg-blush-100/50 p-2.5 rounded-xl border border-blush-200/60 mb-2 flex items-center justify-between';
-        notice.innerHTML = '<span>✦ Showing demo projects (GitHub API rate limit reached or offline).</span>';
-        container.appendChild(notice);
-      }
-
       projects.forEach(repo => {
-        const lang = repo.language || 'Code';
+        const lang = repo.language || (repo.fork ? 'Forked Repo' : 'Code');
         const color = LANGUAGE_COLORS[lang] || LANGUAGE_COLORS.Default;
-        const formattedDate = repo.updated_at ? new Date(repo.updated_at).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : '2026';
+        const formattedDate = repo.pushed_at ? new Date(repo.pushed_at).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : '2026';
+        const isFork = repo.fork;
 
         const card = document.createElement('article');
         card.className = 'group p-4 sm:p-5 rounded-2xl bg-white/70 hover:bg-white border border-cream-200 hover:border-blush-300 shadow-[0_2px_10px_rgba(235,215,220,0.15)] hover:shadow-[0_4px_20px_rgba(242,132,161,0.12)] transition-all duration-200';
@@ -503,13 +411,13 @@
                 <span>${escapeHtml(repo.name)}</span>
                 <svg class="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 -translate-y-0.5 transition-all text-blush-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
               </a>
+              ${isFork ? '<span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-cream-200 text-espresso-400">fork</span>' : ''}
               <span class="text-[11px] font-mono text-espresso-400 font-normal">${formattedDate}</span>
             </div>
 
-            <!-- Repo Quick Actions -->
             <div class="flex items-center gap-3 text-xs font-mono text-espresso-400 mt-1 sm:mt-0">
               ${repo.homepage ? `
-                <a href="${repo.homepage}" target="_blank" rel="noopener noreferrer" class="hover:text-blush-500 flex items-center gap-1 transition-colors" title="Live Website">
+                <a href="${repo.homepage}" target="_blank" rel="noopener noreferrer" class="hover:text-blush-500 flex items-center gap-1 transition-colors" title="Live Site">
                   <span>Visit</span>
                   <span class="text-[10px]">↗</span>
                 </a>
@@ -522,7 +430,7 @@
           </div>
 
           <p class="text-xs sm:text-sm text-espresso-600 font-sans leading-relaxed mb-3">
-            ${escapeHtml(repo.description || "Minimalist open-source project and architecture codebase.")}
+            ${escapeHtml(repo.description || (isFork ? "Forked repository and active contribution codebase." : "Open-source repository and data project."))}
           </p>
 
           <div class="flex items-center justify-between text-xs font-mono pt-1">
@@ -541,74 +449,14 @@
       });
     }
 
-    function generatePastelHeatmap() {
-      const heatmap = document.getElementById('heatmap-grid');
-      heatmap.innerHTML = '';
-      const totalWeeks = 28;
-      const daysPerWeek = 7;
-      
-      const pastelShades = [
-        'bg-cream-200/90',  // 0 contributions
-        'bg-blush-100',     // low
-        'bg-blush-200',     // mid-low
-        'bg-blush-300',     // mid-high
-        'bg-blush-400'      // high
-      ];
-
-      for (let w = 0; w < totalWeeks; w++) {
-        const col = document.createElement('div');
-        col.className = 'flex flex-col gap-1';
-        
-        for (let d = 0; d < daysPerWeek; d++) {
-          const square = document.createElement('div');
-          // Bias toward recent activity on the right side
-          const activityWeight = Math.min(1, (w / totalWeeks) + 0.15);
-          const hasCommit = Math.random() < activityWeight;
-          let shadeIndex = 0;
-
-          if (hasCommit) {
-            shadeIndex = Math.floor(Math.random() * 4) + 1;
-          }
-
-          square.className = `w-2.5 h-2.5 rounded-[3px] ${pastelShades[shadeIndex]} transition-colors duration-200 hover:scale-125`;
-          square.title = `${shadeIndex > 0 ? shadeIndex * 3 : 0} contributions`;
-          col.appendChild(square);
-        }
-        heatmap.appendChild(col);
-      }
-    }
-
-    // Helper: Escape HTML string to avoid injection
     function escapeHtml(str) {
       if (!str) return '';
       return str.replace(/[&<>"']/g, function(m) {
-        return {
-          '&': '&amp;',
-          '<': '&lt;',
-          '>': '&gt;',
-          '"': '&quot;',
-          "'": '&#039;'
-        }[m];
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
       });
     }
 
-    // Custom feedback modal/toast instead of alert()
-    function alertResumeMessage(e) {
-      e.preventDefault();
-      showToast('Resume / CV', 'Place your resume.pdf into your GitHub repository to link it directly.');
-    }
-
-    function showToast(title, desc) {
-      const toast = document.getElementById('toast');
-      document.getElementById('toast-title').textContent = title;
-      document.getElementById('toast-desc').textContent = desc;
-      toast.classList.remove('opacity-0', 'translate-y-20', 'pointer-events-none');
-      setTimeout(() => {
-        toast.classList.add('opacity-0', 'translate-y-20', 'pointer-events-none');
-      }, 4000);
-    }
-
-    // Interactive button to sync any username entered
+    // Sync button listeners
     document.getElementById('fetch-user-btn').addEventListener('click', () => {
       const input = document.getElementById('github-username-input').value.trim();
       if (input) fetchGitHubPortfolio(input);
@@ -621,9 +469,8 @@
       }
     });
 
-    // Initialize on page load
+    // Run on load
     window.addEventListener('DOMContentLoaded', () => {
-      generatePastelHeatmap();
       fetchGitHubPortfolio(DEFAULT_GITHUB_USERNAME);
     });
   </script>
